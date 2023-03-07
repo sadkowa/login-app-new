@@ -1,70 +1,33 @@
-# Getting Started with Create React App
+# Hello Candidate!
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### This is a recruitment task that tests your coding skills in React.
 
-## Available Scripts
+Please <b>fork</b> or <b>download</b> repository and put it on your <b>github</b> or similar tool. </br>
+When you download the repository use <b>npm install</b> in main folder. </br>
+To run mocked server and React code, use <b>npm run start</b>.
 
-In the project directory, you can run:
+[http://localhost:3000](http://localhost:3000)
+</br>
 
-### `npm start`
+Test data user for loginApi: </br>
+email: <i>candidate@test.com</i> </br>
+userName: <i>tester</i> </br>
+password: <i>test1234</i>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## TODO:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Fetch data from login endpoint <b>http://localhost:8080/login</b>. Test account credentials are above.
+- Divide the steps of the form into two parts. The form on the first subpage(first step) should contain the field "email" and "next" button. </br> On the second subpage(second step), the fields "login", "password" and "submit" button. After completing all the data and approving the form, the user should receive a message about successful login.
+- Save "token" from successful "login" request in sessionStorage.
+- Display backend messages validation in red color below form.
+- Add frontend validation. If a field is omitted, receive a message about missing data. You can use external tools if you want.
+- In Navbar display full name of the logged user. Keep user logged with <b>http://localhost:8080/authUser</b> endpoint. To recive full name of the user you need send token in authorization header.
 
-### `npm test`
+## ADDITIONAL TODO:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Improve the look of the application in css. You have full freedom to do so.
+- Use additional styling libraries/tools
 
-### `npm run build`
+## GOOD LUCK! :)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- If you have any additional questions feel free to ask: <i>pawkaniak@gmail.com</i>
