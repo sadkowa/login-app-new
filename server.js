@@ -16,12 +16,12 @@ const apiToken = {
 };
 
 app.post('/login', (req, res) => {
-  const { userName, password } = req.body;
+  const { email, userName, password } = req.body;
   try {
-    if (!userName || !password) {
-      return res.status(400).json({ message: 'Missing username or password' });
+    if (!email || !userName || !password) {
+      return res.status(400).json({ message: 'Missing email, username, or password' });
     }
-    if (userName === userBody.userName && password === 'test1234') {
+    if (email === userBody.email && userName === userBody.userName && password === 'test1234') {
       res.status(200).json(apiToken);
     } else {
       res.status(401).json({ message: 'Wrong credentials' });
