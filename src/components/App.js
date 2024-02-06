@@ -3,7 +3,7 @@ import '../App.css';
 import React, { useState } from 'react';
 import LoginAuthApi from '../api/LoginAuthApi';
 
-import { initUserData, userDataFields, fieldValidate } from '../helpers/formData';
+import { initUserData, userDataFields, fieldValidate, formValidate } from '../helpers/formData';
 
 import { Header } from './Header';
 import { Form } from './Form';
@@ -26,16 +26,18 @@ function App() {
 
   const changeHandler = (e, field) => {
     const { name, value } = e.target
+    setErrors({ ...errors, [name]: '' })
     setUserData({ ...userData, [name]: value })
-    console.log(userData)
   }
 
   const blurHandler = (e, field) => {
     const { name } = field
     const currentErrorMessage = fieldValidate(field, userData)
 
-    setErrors({ ...errors, [name]: [currentErrorMessage] })
-    console.log(errors)
+    if (currentErrorMessage) {
+      setErrors({ ...errors, [name]: [currentErrorMessage] })
+
+    }
   }
 
   const renderFields = () => {
@@ -60,15 +62,14 @@ function App() {
   }
 
   const clickNextButton = () => {
-    console.log(userData.email)
+    if (errors.email === '') {
+      setCurrentStepIndex(currentStepIndex + 1)
+    }
   }
 
   const submitHandler = e => {
     e.preventDefault()
 
-    if (currentStepIndex === 0) {
-
-    }
   }
 
   return (
