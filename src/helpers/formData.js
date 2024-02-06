@@ -2,29 +2,15 @@ import { v4 as uuid } from "uuid";
 
 const initUserData = {
     email: '',
-    login: '',
+    userName: '',
     password: ''
 }
 
 const userDataFields = [
     { id: uuid(), stepId: 0, type: 'text', name: "email", label: 'Email', required: true, pattern: /^[-\w.]+@([-\w]+\.)+[a-z]+$/i },
-    { id: uuid(), stepId: 1, type: 'text', name: "login", label: 'Login', required: true },
+    { id: uuid(), stepId: 1, type: 'text', name: "userName", label: 'User Name', required: true },
     { id: uuid(), stepId: 1, type: 'password', name: "password", label: 'Password', required: true },
 ]
-
-const formValidate = data => {
-    const errors = {}
-
-    userDataFields.forEach(field => {
-        const newErrorMessage = fieldValidate(field, data)
-
-        if (typeof newErrorMessage !== 'undefined') {
-            errors[field.name] = []
-            errors[field.name].push(fieldValidate(field, data))
-        }
-    })
-    return errors
-}
 
 const fieldValidate = (field, data) => {
     let error
@@ -46,6 +32,20 @@ const fieldValidate = (field, data) => {
     }
 
     return error
+}
+
+const formValidate = data => {
+    const errors = {}
+
+    userDataFields.forEach(field => {
+        const newErrorMessage = fieldValidate(field, data)
+
+        if (typeof newErrorMessage !== 'undefined') {
+            errors[field.name] = []
+            errors[field.name].push(fieldValidate(field, data))
+        }
+    })
+    return errors
 }
 
 export { initUserData, userDataFields, formValidate, fieldValidate }
