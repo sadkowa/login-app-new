@@ -2,15 +2,16 @@ import { loginApi, authUserApi } from "."
 
 class LoginAuthApi {
 
-    login() {
+    login(data) {
         return fetch(loginApi, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                email: 'candidate@test.com',
-                userName: 'tester',
-                password: 'test1234',
-            })
+            body: JSON.stringify(data)
+            // body: JSON.stringify({
+            //     email: 'candidate@test.com',
+            //     userName: 'tester',
+            //     password: 'test1234',
+            // })
         })
             .then(this.handleErrors)
             .then(resp => resp.json())
