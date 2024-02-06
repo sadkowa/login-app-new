@@ -7,9 +7,12 @@ import { initUserData, userDataFields } from '../helpers/formData';
 
 import { Header } from './Header';
 import { Form } from './Form';
+import { Label } from './Label';
+import { FormField } from './FormField';
+import { SubmitInput } from './SubmitInput';
 
 function App() {
-  const [currentStepIndex, setCurrentStepIndex] = useState(1)
+  const [currentStepIndex, setCurrentStepIndex] = useState(0)
 
   const [userData, setUserData] = useState(initUserData)
 
@@ -34,12 +37,12 @@ function App() {
 
       if (stepId === currentStepIndex) {
         return (
-          <label key={id}>{label}
-            <input
+          <Label key={id}>{label}
+            <FormField
               type={type}
               name={name}
             />
-          </label>
+          </Label>
         )
       }
     })
@@ -47,7 +50,7 @@ function App() {
 
   const submitHandler = e => {
     e.preventDefault()
-    console.log('clicked')
+    console.log(e)
   }
 
   return (
@@ -56,10 +59,14 @@ function App() {
       <Form onSubmit={submitHandler}>
         {renderFields()}
         {currentStepIndex === 0 && (
-          <input type='submit' value="next" />
+          <Label>
+            <SubmitInput type='submit' value="next" />
+          </Label>
         )}
         {currentStepIndex === 1 && (
-          <input type='submit' value="submit" />
+          <Label>
+            <SubmitInput type='submit' value="submit" />
+          </Label>
         )}
       </Form>
     </div>
