@@ -11,7 +11,7 @@ import { Label } from './Label';
 import { FormField } from './FormField';
 import { SubmitInput } from './SubmitInput';
 import { Button } from './Button';
-import { Error } from './Error';
+import { ErrorText } from './ErrorText';
 
 function App() {
   const [currentStepIndex, setCurrentStepIndex] = useState(0)
@@ -19,8 +19,8 @@ function App() {
   const [userData, setUserData] = useState(initUserData)
   const [errors, setErrors] = useState({})
 
-  const [token, setToken] = useState('')
-  const [error, setError] = useState('')
+  const [loggedIn, setLoggedIn] = useState(false)
+  const [errorApi, setErrorApi] = useState('')
   const loginApi = new LoginAuthApi()
 
 
@@ -36,11 +36,11 @@ function App() {
 
     if (currentErrorMessage) {
       setErrors({ ...errors, [name]: [currentErrorMessage] })
-
     }
   }
 
   const renderFields = () => {
+
     return userDataFields.map(field => {
       const { id, stepId, type, name, label } = field
 
@@ -54,14 +54,21 @@ function App() {
               onChange={e => changeHandler(e, field)}
               onBlur={e => blurHandler(e, field)}
             />
-            {errors[name] && <Error>{errors[name]}</Error>}
+            {errors[name] && <ErrorText>{errors[name]}</ErrorText>}
           </Label>
         )
       }
     })
   }
 
-  const clickNextButton = () => {
+  const clickNextButton = e => {
+    e.preventDefault()
+
+    const currentErrorMessage = fieldValidate(userDataFields[0], userData)
+
+    if (currentErrorMessage) {
+      setErrors({ ...errors, ['email']: [currentErrorMessage] })
+    }
     if (errors.email === '') {
       setCurrentStepIndex(currentStepIndex + 1)
     }
@@ -79,11 +86,11 @@ function App() {
       loginApi.login(userData)
         .then(data => {
           console.log(data)
-          setToken(data)
+          setLoggedIn(true)
         })
         .catch(error => {
-          console.log(error)
-          // setError(error)
+          setErrorApi(error.message)
+          console.log(errorApi)
         })
     }
   }
@@ -91,20 +98,23 @@ function App() {
   return (
     <div className='App'>
       <Header>Login App</Header>
-      <Form onSubmit={submitHandler}>
-        {renderFields()}
-        {currentStepIndex === 0 && (
+      {!loggedIn
+        ? 
+        <Form onSubmit={submitHandler}>
+          {renderFields()}
+          {currentStepIndex === 0 && (
           <Label>
-            <Button onClick={clickNextButton}>Next</Button>
-            {/* <SubmitInput type='submit' value="next" /> */}
-          </Label>
-        )}
-        {currentStepIndex === 1 && (
-          <Label>
-            <SubmitInput type='submit' value="submit" />
-          </Label>
-        )}
-      </Form>
+              <Button onClick={clickNextButton}>Next</Button>
+            </Label>)}
+          {currentStepIndex === 1 && (
+            <Label>
+              <SubmitInput type='submit' value="submit" />
+            </Label>)}
+          {errorApi && <ErrorText>{errorApi}</ErrorText>}
+        </Form>
+        :
+        <p>You are logged in!</p>
+      }
     </div>
   );
 }
