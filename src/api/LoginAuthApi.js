@@ -18,7 +18,7 @@ class LoginAuthApi {
 
     getFullName(token) {
         return fetch(authUserApi, {
-            method: "Get",
+            method: "GET",
             headers: {
                 "Authorization": token
             },
