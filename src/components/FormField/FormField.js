@@ -1,9 +1,9 @@
 import React from "react";
 import StyledFormField from "./FormField.styled";
 
-const FormField = ({ children }) => {
+const FormField = ({ children, type }) => {
     return (
-        <StyledFormField>
+        <StyledFormField type={type}>
             {children}
         </StyledFormField>
     )
