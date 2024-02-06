@@ -70,6 +70,22 @@ function App() {
   const submitHandler = e => {
     e.preventDefault()
 
+    const newErrors = formValidate(userData)
+
+    if (Object.keys(newErrors).length !== 0) {
+      setErrors(newErrors)
+    }
+    else {
+      loginApi.login(userData)
+        .then(data => {
+          console.log(data)
+          setToken(data)
+        })
+        .catch(error => {
+          console.log(error)
+          // setError(error)
+        })
+    }
   }
 
   return (
