@@ -7,9 +7,9 @@ const initUserData = {
 }
 
 const userDataFields = [
-    { id: uuid(), type: 'text', name: "email", label: 'Email', required: true, pattern: /^[-\w.]+@([-\w]+\.)+[a-z]+$/i },
-    { id: uuid(), type: 'text', name: "login", label: 'Login', required: true },
-    { id: uuid(), type: 'password', name: "password", label: 'Password', required: true },
+    { id: uuid(), stepId: 0, type: 'text', name: "email", label: 'Email', required: true, pattern: /^[-\w.]+@([-\w]+\.)+[a-z]+$/i },
+    { id: uuid(), stepId: 1, type: 'text', name: "login", label: 'Login', required: true },
+    { id: uuid(), stepId: 1, type: 'password', name: "password", label: 'Password', required: true },
 ]
 
 const formValidate = data => {
