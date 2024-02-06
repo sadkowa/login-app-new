@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-const StyledError = styled.p`
+const StyledErrorText = styled.p`
     font-size: 1rem;
     color: red;
 `
 
-export default StyledError
+export default StyledErrorText
