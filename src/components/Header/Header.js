@@ -1,11 +1,11 @@
 import React from "react";
 import StyledHeader from "./Header.styled";
 
-const Header = (props) => {
+const Header = ({children}) => {
 
     return (
         <StyledHeader>
-            {props.children}
+            {children}
         </StyledHeader>
     )
 }
