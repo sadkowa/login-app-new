@@ -5,10 +5,9 @@ const Header = (props) => {
 
     return (
         <StyledHeader>
-            <h1>{props.children}</h1>
+            {props.children}
         </StyledHeader>
     )
-
 }
 
 export default Header
