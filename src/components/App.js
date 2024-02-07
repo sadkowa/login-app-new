@@ -18,8 +18,10 @@ import { SubmitInput } from './SubmitInput';
 import { Button } from './Button';
 import { ErrorText } from './ErrorText';
 import { UserPanel } from './UserPanel';
+import { NavBar } from './NavBar';
 
 import { useStorage } from '../hooks/useStorage';
+import img from './../assets/hello.png'
 
 function App() {
   const [currentStepIndex, setCurrentStepIndex] = useState(0)
@@ -44,7 +46,7 @@ function App() {
     }
   }, [])
 
-  const loadFullUserName = (token) => {
+  const loadFullUserName = token => {
     loginApi.getFullName(token)
       .then(data => setFullName(data.fullUserName))
       .catch(error => console.error(error.message))
@@ -52,6 +54,7 @@ function App() {
 
   const changeHandler = e => {
     const { name, value } = e.target
+
     setFieldsErrors({ ...fieldsErrors, [name]: '' })
     setApiError('')
     setUserData({ ...userData, [name]: value })
@@ -138,8 +141,12 @@ function App() {
     <div className='App'>
       <Header>
         <h1>Login App</h1>
-
-        {loggedIn && <button onClick={logOutHandler}>Log out</button>}
+        {loggedIn &&
+          <NavBar>
+            <span>Signed as: <br /><em>{fullName}</em></span>
+            <Button onClick={logOutHandler}>Log out</Button>
+          </NavBar>
+        }
       </Header>
       {!loggedIn
         ? 
@@ -159,7 +166,7 @@ function App() {
         <UserPanel>
           <h2>You are logged in! </h2>
           {fullName && <h3>Welcome,<p>{fullName}</p></h3>}
-          😃
+          <img src={img} alt="hello" />
         </UserPanel>
       }
     </div>
