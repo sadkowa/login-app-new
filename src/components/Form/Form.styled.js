@@ -7,7 +7,14 @@ const StyledForm = styled.form`
     flex-grow: 1;
     width: 80%;
     max-width: 400px;
-    margin: 0 auto;
+    margin: 0 auto; 
+
+    & section {
+        display: flex;
+        justify-content: center;
+        margin-top: 100px;
+        gap: 20px;
+    }
 `
 
 export default StyledForm
