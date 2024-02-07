@@ -10,15 +10,17 @@ import {
   formValidate
 } from '../helpers/formData';
 
-import { Header } from './Header';
-import { Form } from './Form';
-import { Label } from './Label';
-import { FormField } from './FormField';
-import { SubmitInput } from './SubmitInput';
-import { Button } from './Button';
-import { ErrorText } from './ErrorText';
-import { UserPanel } from './UserPanel';
-import { NavBar } from './NavBar';
+import {
+  Header,
+  Form,
+  Label,
+  FormField,
+  SubmitInput,
+  Button,
+  ErrorText,
+  UserPanel,
+  NavBar
+} from './'
 
 import { useStorage } from '../hooks/useStorage';
 import img from './../assets/hello.png'
@@ -143,7 +145,7 @@ function App() {
         <h1>Login App</h1>
         {loggedIn &&
           <NavBar>
-            <span>Signed as: <br /><em>{fullName}</em></span>
+            <p>Signed as: <span>{fullName}</span></p>
             <Button onClick={logOutHandler}>Log out</Button>
           </NavBar>
         }
