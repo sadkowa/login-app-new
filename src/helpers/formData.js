@@ -32,14 +32,14 @@ const userDataFields = [
         name: "password",
         label: 'Password',
         required: true,
-        pattern: /^(?=.*[a-z]).{8,16}$/
+        pattern: /^(?=.*[0-9])(?=.*[a-z]).{8,}$/
     },
 ]
 
 const errorMessages = {
     email: "Please enter a valid email address",
     userName: "User name must contain 5-15 characters",
-    password: "Password must contain at least 8 characters and at least 3 numbers",
+    password: "Password must contain at least 8 characters and at least 1 number",
   };
 
 const fieldValidate = (field, data) => {
