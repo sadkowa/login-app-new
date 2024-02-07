@@ -19,7 +19,8 @@ import {
   Button,
   ErrorText,
   UserPanel,
-  NavBar
+  NavBar,
+  Dot
 } from './'
 
 import { useStorage } from '../hooks/useStorage';
@@ -84,6 +85,7 @@ function App() {
               name={name}
               onChange={changeHandler}
               onBlur={e => blurHandler(field)}
+              // onKeyDown={(e) => { e.key === 'Enter' && e.preventDefault(); }}
             />
             {fieldsErrors[name] && <ErrorText>{fieldsErrors[name]}</ErrorText>}
           </Label>
@@ -163,6 +165,10 @@ function App() {
               <SubmitInput type='submit' value="submit" />
             </Label>)}
           {apiError && <ErrorText>{apiError}</ErrorText>}
+          <section>
+            <Dot active={currentStepIndex === 0} />
+            <Dot active={currentStepIndex === 1} />
+          </section>
         </Form>
         :
         <UserPanel>
