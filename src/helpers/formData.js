@@ -32,7 +32,7 @@ const userDataFields = [
         name: "password",
         label: 'Password',
         required: true,
-        pattern: /^(?=.*[0-9])(?=.*[a-z]).{8,}$/
+        pattern: /^(?=.*[0-9])(?=.*[a-z]|[A-Z]).{8,}$/
     },
 ]
 
