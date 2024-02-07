@@ -1,9 +1,14 @@
 import '../App.css';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import LoginAuthApi from '../api/LoginAuthApi';
 
-import { initUserData, userDataFields, fieldValidate, formValidate } from '../helpers/formData';
+import {
+  initUserData,
+  userDataFields,
+  fieldValidate,
+  formValidate
+} from '../helpers/formData';
 
 import { Header } from './Header';
 import { Form } from './Form';
@@ -12,6 +17,7 @@ import { FormField } from './FormField';
 import { SubmitInput } from './SubmitInput';
 import { Button } from './Button';
 import { ErrorText } from './ErrorText';
+import { UserPanel } from './UserPanel';
 
 function App() {
   const [currentStepIndex, setCurrentStepIndex] = useState(0)
@@ -21,12 +27,30 @@ function App() {
 
   const [loggedIn, setLoggedIn] = useState(false)
   const [errorApi, setErrorApi] = useState('')
+  const [fullName, setFullName] = useState('')
+
   const loginApi = new LoginAuthApi()
 
+  useEffect(() => {
+    const token = JSON.parse(sessionStorage.getItem('token'))
+    // console.log(token)
+    // console.log(loggedIn)
+    if (token) {
+      setLoggedIn(true)
+      loginApi.getFullName(token)
+        .then(data => {
+          setFullName(data.fullUserName)
+        })
+        .catch(error => {
+          console.log(error.message)
+        })
+    }
+  }, [])
 
   const changeHandler = (e, field) => {
     const { name, value } = e.target
     setErrors({ ...errors, [name]: '' })
+    setErrorApi('')
     setUserData({ ...userData, [name]: value })
   }
 
@@ -67,7 +91,7 @@ function App() {
     const currentErrorMessage = fieldValidate(userDataFields[0], userData)
 
     if (currentErrorMessage) {
-      setErrors({ ...errors, ['email']: [currentErrorMessage] })
+      setErrors({ ...errors, email: [currentErrorMessage] })
     }
     if (errors.email === '') {
       setCurrentStepIndex(currentStepIndex + 1)
@@ -85,12 +109,21 @@ function App() {
     else {
       loginApi.login(userData)
         .then(data => {
-          console.log(data)
+          const { token } = data
+
           setLoggedIn(true)
+          sessionStorage.setItem("token", JSON.stringify(token))
+          loginApi.getFullName(token)
+            .then(data => {
+              console.log(token)
+              setFullName(data.fullUserName)
+            })
+            .catch(error => {
+              console.log(error.message)
+            })
         })
         .catch(error => {
           setErrorApi(error.message)
-          console.log(errorApi)
         })
     }
   }
@@ -113,7 +146,11 @@ function App() {
           {errorApi && <ErrorText>{errorApi}</ErrorText>}
         </Form>
         :
-        <p>You are logged in!</p>
+        <UserPanel>
+          <h2>You are logged in! </h2>
+          {fullName && <h3>Welcome,<p>{fullName}</p></h3>}
+          😃
+        </UserPanel>
       }
     </div>
   );
