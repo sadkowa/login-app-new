@@ -7,9 +7,33 @@ const initUserData = {
 }
 
 const userDataFields = [
-    { id: uuid(), stepId: 0, type: 'text', name: "email", label: 'Email', required: true, pattern: /^[-\w.]+@([-\w]+\.)+[a-z]+$/i },
-    { id: uuid(), stepId: 1, type: 'text', name: "userName", label: 'Login', required: true, pattern: /^[\w-_.]{5,15}$/i },
-    { id: uuid(), stepId: 1, type: 'password', name: "password", label: 'Password', required: true, pattern: /^(?=.*[a-z]).{8,16}$/ },
+    {
+        id: uuid(),
+        stepId: 0,
+        type: 'text',
+        name: "email",
+        label: 'Email',
+        required: true,
+        pattern: /^[-\w.]+@([-\w]+\.)+[a-z]+$/i
+    },
+    {
+        id: uuid(),
+        stepId: 1,
+        type: 'text',
+        name: "userName",
+        label: 'Login',
+        required: true,
+        pattern: /^[\w-_.]{5,15}$/i
+    },
+    {
+        id: uuid(),
+        stepId: 1,
+        type: 'password',
+        name: "password",
+        label: 'Password',
+        required: true,
+        pattern: /^(?=.*[a-z]).{8,16}$/
+    },
 ]
 
 const errorMessages = {
@@ -36,7 +60,6 @@ const fieldValidate = (field, data) => {
             }
         }
     }
-
     return error
 }
 
