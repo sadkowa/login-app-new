@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const StyledButton = styled.button`
     width: 100%;
@@ -12,6 +12,11 @@ const StyledButton = styled.button`
     background-color: green;
     cursor: pointer;
     transition: 0.2s linear;
+
+    ${({ name }) => name === "Log out" && css`
+    height: 40px;
+        width: 100px
+    `};
 
     &:hover {
         background-color: darkgreen;
