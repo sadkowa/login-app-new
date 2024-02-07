@@ -5,14 +5,19 @@ const StyledNavBar = styled.nav`
     align-items: center;
     justify-content: center; 
     margin: 10px 30px 20px;
-    gap: 10px;
+    gap: 20px;
     height: 100%;
+
+    & span {
+        display: block;
+        font-style: italic;
+    }
 
     @media (min-width: 650px) {
         position: absolute;
         display: flex;
         align-items: center;
-        width: 220px;
+        width: 250px;
         margin: 0; 
         height: 100%;
         top: 0;
