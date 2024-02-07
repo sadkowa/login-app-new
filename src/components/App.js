@@ -33,8 +33,7 @@ function App() {
 
   useEffect(() => {
     const token = JSON.parse(sessionStorage.getItem('token'))
-    // console.log(token)
-    // console.log(loggedIn)
+
     if (token) {
       setLoggedIn(true)
       loginApi.getFullName(token)
@@ -47,14 +46,14 @@ function App() {
     }
   }, [])
 
-  const changeHandler = (e, field) => {
+  const changeHandler = e => {
     const { name, value } = e.target
     setErrors({ ...errors, [name]: '' })
     setErrorApi('')
     setUserData({ ...userData, [name]: value })
   }
 
-  const blurHandler = (e, field) => {
+  const blurHandler = field => {
     const { name } = field
     const currentErrorMessage = fieldValidate(field, userData)
 
@@ -75,8 +74,8 @@ function App() {
               value={userData[name]}
               type={type}
               name={name}
-              onChange={e => changeHandler(e, field)}
-              onBlur={e => blurHandler(e, field)}
+              onChange={changeHandler}
+              onBlur={e => blurHandler(field)}
             />
             {errors[name] && <ErrorText>{errors[name]}</ErrorText>}
           </Label>
