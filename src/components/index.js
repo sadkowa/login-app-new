@@ -7,6 +7,7 @@ import { Button } from './Button';
 import { ErrorText } from './ErrorText';
 import { UserPanel } from './UserPanel';
 import { NavBar } from './NavBar';
+import { Dot } from './Dot';
 
 
 export {
@@ -18,5 +19,6 @@ export {
     Button,
     ErrorText,
     UserPanel,
-    NavBar
+    NavBar,
+    Dot
 }
