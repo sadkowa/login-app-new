@@ -6,6 +6,8 @@ const StyledUserPanel = styled.div`
     justify-content: center;
     align-items: center;
     flex-grow: 1;
+    animation-name: opacity;
+    animation-duration: 3s;
 
     & h2 {
         margin: 20px 10px 30px;
@@ -23,7 +25,12 @@ const StyledUserPanel = styled.div`
 
     & img {
         max-width: 70%;
-        margin: 60px
+        margin: 60px;
+
+        @keyframes opacity {
+            from {opacity: 0}
+            to {opacity: 1}
+        } 
     }
 `
 
