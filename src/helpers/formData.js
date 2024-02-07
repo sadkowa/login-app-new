@@ -8,9 +8,15 @@ const initUserData = {
 
 const userDataFields = [
     { id: uuid(), stepId: 0, type: 'text', name: "email", label: 'Email', required: true, pattern: /^[-\w.]+@([-\w]+\.)+[a-z]+$/i },
-    { id: uuid(), stepId: 1, type: 'text', name: "userName", label: 'User Name', required: true },
-    { id: uuid(), stepId: 1, type: 'password', name: "password", label: 'Password', required: true },
+    { id: uuid(), stepId: 1, type: 'text', name: "userName", label: 'Login', required: true, pattern: /^[\w-_.]{5,15}$/i },
+    { id: uuid(), stepId: 1, type: 'password', name: "password", label: 'Password', required: true, pattern: /^(?=.*[a-z]).{8,16}$/ },
 ]
+
+const errorMessages = {
+    email: "Please enter a valid email address",
+    userName: "User name must contain 5-15 characters",
+    password: "Password must contain at least 8 characters and at least 3 numbers",
+  };
 
 const fieldValidate = (field, data) => {
     let error
@@ -25,7 +31,7 @@ const fieldValidate = (field, data) => {
             if (pattern) {
                 const test = pattern.test(value)
                 if (!test) {
-                    error = `Correct the entered data`
+                    error = errorMessages[name]
                 }
             }
         }
