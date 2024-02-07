@@ -8,7 +8,7 @@ const StyledNavBar = styled.nav`
     gap: 10px;
     height: 100%;
 
-    @media (min-width:650px) {
+    @media (min-width: 650px) {
         position: absolute;
         display: flex;
         align-items: center;
