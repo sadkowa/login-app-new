@@ -7,11 +7,6 @@ class LoginAuthApi {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data)
-            // body: JSON.stringify({
-            //     email: 'candidate@test.com',
-            //     userName: 'tester',
-            //     password: 'test1234',
-            // })
         })
             .then(this.handleErrors)
             .then(resp => resp.json())
@@ -21,6 +16,7 @@ class LoginAuthApi {
         return fetch(authUserApi, {
             method: "GET",
             headers: {
+                "Content-Type": "application/json",
                 "Authorization": token
             },
         })
@@ -32,12 +28,10 @@ class LoginAuthApi {
         if (!resp.ok) {
             return resp.json()
                 .then(errorData => {
-                    // Promise.reject(new Error(errorData.message))
                     throw new Error(errorData.message)
                 })
         } return resp
     }
-
 }
 
 export default LoginAuthApi
