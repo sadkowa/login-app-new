@@ -11,6 +11,7 @@ import { Dot } from './Dot';
 import { UserInfo } from './UserInfo';
 import { Container } from './Container';
 import { DotsSection } from './DotsSection';
+import { MainHeading } from './MainHeading';
 
 
 export {
@@ -26,5 +27,6 @@ export {
     Dot, 
     UserInfo,
     Container,
-    DotsSection
+    DotsSection,
+    MainHeading
 }

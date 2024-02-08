@@ -23,11 +23,11 @@ import {
   Dot,
   UserInfo,
   Container,
-  DotsSection
+  DotsSection,
+  MainHeading
 } from './'
 
 import { useStorage } from '../hooks/useStorage';
-import img from './../assets/hello.png'
 
 function App() {
   const [currentPageIndex, setCurrentPageIndex] = useState(0)
@@ -156,7 +156,7 @@ function App() {
   return (
     <div className='App'>
       <Header>
-        <h1>Login App</h1>
+        <MainHeading>Login App</MainHeading>
         {loggedIn &&
           <NavBar>
             <UserInfo fullName={fullName}/>
