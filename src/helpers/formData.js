@@ -70,8 +70,8 @@ const formValidate = data => {
         const newErrorMessage = fieldValidate(field, data)
 
         if (typeof newErrorMessage !== 'undefined') {
-            errors[field.name] = []
-            errors[field.name].push(fieldValidate(field, data))
+            errors[field.name] = ''
+            errors[field.name] = fieldValidate(field, data)
         }
     })
     return errors
