@@ -27,7 +27,7 @@ import { useStorage } from '../hooks/useStorage';
 import img from './../assets/hello.png'
 
 function App() {
-  const [currentStepIndex, setCurrentStepIndex] = useState(0)
+  const [currentPageIndex, setCurrentPageIndex] = useState(0)
 
   const [userData, setUserData] = useState(initUserData)
   const [fieldsErrors, setFieldsErrors] = useState({})
@@ -68,7 +68,7 @@ function App() {
     const currentErrorMessage = fieldValidate(field, userData)
 
     if (currentErrorMessage) {
-      setFieldsErrors({ ...fieldsErrors, [name]: [currentErrorMessage] })
+      setFieldsErrors({ ...fieldsErrors, [name]: currentErrorMessage })
     }
   }
 
@@ -76,7 +76,7 @@ function App() {
     return userDataFields.map(field => {
       const { id, stepId, type, name, label } = field
 
-      if (stepId === currentStepIndex) {
+      if (stepId === currentPageIndex) {
         return (
           <Label key={id}>{label}
             <FormField
@@ -84,8 +84,7 @@ function App() {
               type={type}
               name={name}
               onChange={changeHandler}
-              onBlur={e => blurHandler(field)}
-              // onKeyDown={(e) => { e.key === 'Enter' && e.preventDefault(); }}
+              onBlur={() => blurHandler(field)}
             />
             {fieldsErrors[name] && <ErrorText>{fieldsErrors[name]}</ErrorText>}
           </Label>
@@ -96,27 +95,37 @@ function App() {
 
   const nextButtonHandler = e => {
     e.preventDefault()
+
     const [email] = userDataFields
 
     const currentErrorMessage = fieldValidate(email, userData)
 
     if (currentErrorMessage) {
-      setFieldsErrors({ ...fieldsErrors, email: [currentErrorMessage] })
+      setFieldsErrors({ ...fieldsErrors, email: currentErrorMessage })
     }
     if (fieldsErrors.email === '') {
-      setCurrentStepIndex(currentStepIndex + 1)
+      setCurrentPageIndex(currentPageIndex + 1)
     }
   }
 
   const logOutHandler = () => {
     setLoggedIn(false)
     setFullName('')
-    setCurrentStepIndex(0)
+    setCurrentPageIndex(0)
     removeData('token')
   }
 
   const clearFields = () => {
     setUserData(initUserData)
+  }
+
+  const changePageHandler = (e) => {
+
+    if (currentPageIndex === 0) {
+      nextButtonHandler(e)
+    } else {
+      setCurrentPageIndex(currentPageIndex - 1)
+    }
   }
 
   const submitHandler = e => {
@@ -125,7 +134,7 @@ function App() {
     const newErrors = formValidate(userData)
 
     if (Object.keys(newErrors).length !== 0) {
-      setFieldsErrors(newErrors)
+      setFieldsErrors({ ...fieldsErrors, ...newErrors })
     }
     else {
       loginApi.login(userData)
@@ -154,25 +163,34 @@ function App() {
       </Header>
       {!loggedIn
         ? 
-        <Form onSubmit={submitHandler}>
+        <Form
+          onSubmit={submitHandler}
+          onKeyDown={(e) => e.key === 'Enter' && e.preventDefault()}
+        >
           {renderFields()}
-          {currentStepIndex === 0 && (
+          {currentPageIndex === 0 && (
           <Label>
               <Button onClick={nextButtonHandler}>Next</Button>
             </Label>)}
-          {currentStepIndex === 1 && (
+          {currentPageIndex === 1 && (
             <Label>
               <SubmitInput type='submit' value="submit" />
             </Label>)}
           {apiError && <ErrorText>{apiError}</ErrorText>}
           <section>
-            <Dot active={currentStepIndex === 0} />
-            <Dot active={currentStepIndex === 1} />
+            <Dot
+              active={currentPageIndex === 0}
+              onClick={changePageHandler}
+            />
+            <Dot
+              active={currentPageIndex === 1}
+              onClick={changePageHandler}
+            />
           </section>
         </Form>
         :
         <UserPanel>
-          <h2>You are logged in! </h2>
+          <h2>You are logged in!</h2>
           {fullName && <h3>Welcome,<p>{fullName}</p></h3>}
           <img src={img} alt="hello" />
         </UserPanel>

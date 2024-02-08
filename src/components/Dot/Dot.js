@@ -1,9 +1,12 @@
 import React from "react";
 import StyledDot from "./Dot.styled";
 
-const Dot = ({ active }) => {
-    return <StyledDot $active={active} />
+const Dot = ({ active, onClick }) => {
+    
+    return <StyledDot
+        $active={active}
+        disabled={active}
+        onClick={onClick} />
 }
-
 
 export default Dot
