@@ -1,6 +1,6 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
-const StyledDot = styled.div`
+const StyledDot = styled.button`
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -8,6 +8,10 @@ const StyledDot = styled.div`
     background-color: ${({ $active }) => (
         $active ? 'darkgreen' : 'transparent'
     )};
+    cursor:pointer;
+    &:disabled {
+        cursor: auto;
+    }
 `
 
 export default StyledDot
