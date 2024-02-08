@@ -22,7 +22,8 @@ import {
   NavBar,
   Dot,
   UserInfo,
-  Container
+  Container,
+  DotsSection
 } from './'
 
 import { useStorage } from '../hooks/useStorage';
@@ -181,7 +182,7 @@ function App() {
           <Container>
             {apiError && <ErrorText>{apiError}</ErrorText>}
           </Container>
-          <section>
+          <DotsSection>
             <Dot
               active={currentPageIndex === 0}
               onClick={changePageHandler}
@@ -190,7 +191,7 @@ function App() {
               active={currentPageIndex === 1}
               onClick={changePageHandler}
             />
-          </section>
+          </DotsSection>
         </Form>
         :
         <UserPage>

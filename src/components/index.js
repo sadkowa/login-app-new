@@ -10,6 +10,7 @@ import { NavBar } from './NavBar';
 import { Dot } from './Dot';
 import { UserInfo } from './UserInfo';
 import { Container } from './Container';
+import { DotsSection } from './DotsSection';
 
 
 export {
@@ -24,5 +25,6 @@ export {
     NavBar,
     Dot, 
     UserInfo,
-    Container
+    Container,
+    DotsSection
 }
