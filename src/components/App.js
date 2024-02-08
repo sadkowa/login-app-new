@@ -161,8 +161,7 @@ function App() {
           <NavBar>
             <UserInfo fullName={fullName}/>
             <Button onClick={logOutHandler}>Log out</Button>
-          </NavBar>
-        }
+          </NavBar>}
       </Header>
       {!loggedIn
         ? 
@@ -194,12 +193,7 @@ function App() {
           </DotsSection>
         </Form>
         :
-        <UserPage>
-          <h2>You are logged in!</h2>
-          {fullName && <h3>Welcome,<p>{fullName}</p></h3>}
-          <img src={img} alt="hello" />
-        </UserPage>
-      }
+        <UserPage fullName={fullName} />}
     </div>
   );
 }
