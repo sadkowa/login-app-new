@@ -18,7 +18,7 @@ import {
   SubmitInput,
   Button,
   ErrorText,
-  UserPanel,
+  UserPage,
   NavBar,
   Dot,
   UserInfo,
@@ -193,11 +193,11 @@ function App() {
           </section>
         </Form>
         :
-        <UserPanel>
+        <UserPage>
           <h2>You are logged in!</h2>
           {fullName && <h3>Welcome,<p>{fullName}</p></h3>}
           <img src={img} alt="hello" />
-        </UserPanel>
+        </UserPage>
       }
     </div>
   );

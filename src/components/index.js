@@ -5,7 +5,7 @@ import { FormField } from './FormField';
 import { SubmitInput } from './SubmitInput';
 import { Button } from './Button';
 import { ErrorText } from './ErrorText';
-import { UserPanel } from './UserPanel';
+import { UserPage } from './UserPage';
 import { NavBar } from './NavBar';
 import { Dot } from './Dot';
 import { UserInfo } from './UserInfo';
@@ -20,7 +20,7 @@ export {
     SubmitInput,
     Button,
     ErrorText,
-    UserPanel,
+    UserPage,
     NavBar,
     Dot, 
     UserInfo,

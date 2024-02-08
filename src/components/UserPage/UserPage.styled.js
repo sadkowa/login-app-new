@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const StyledUserPanel = styled.div`
+const StyledUserPage = styled.section`
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -43,6 +43,7 @@ const StyledUserPanel = styled.div`
             }
         } 
     }
+
 `
 
-export default StyledUserPanel
+export default StyledUserPage
