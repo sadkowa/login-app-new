@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const StyledErrorText = styled.p`
     position: absolute;
-    bottom: -20px;
+    top: calc(100%);
     font-size: 0.9rem;
     color: red;
 `

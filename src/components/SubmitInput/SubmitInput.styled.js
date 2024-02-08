@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 const StyledSubmitInput = styled.input`
     width: 100%;
+    margin-top:20px;
     padding: 7px;
     border: 1px solid green;
     border-radius: 20px;
