@@ -8,11 +8,6 @@ const StyledNavBar = styled.nav`
     gap: 20px;
     height: 100%;
 
-    & span {
-        display: block;
-        font-style: italic;
-    }
-
     @media (min-width: 700px) {
         position: absolute;
         display: flex;

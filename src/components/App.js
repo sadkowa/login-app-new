@@ -25,6 +25,7 @@ import {
 
 import { useStorage } from '../hooks/useStorage';
 import img from './../assets/hello.png'
+import { UserInfo } from './UserInfo';
 
 function App() {
   const [currentPageIndex, setCurrentPageIndex] = useState(0)
@@ -156,7 +157,7 @@ function App() {
         <h1>Login App</h1>
         {loggedIn &&
           <NavBar>
-            <p>Signed as: <span>{fullName}</span></p>
+            <UserInfo fullName={fullName}/>
             <Button onClick={logOutHandler}>Log out</Button>
           </NavBar>
         }
