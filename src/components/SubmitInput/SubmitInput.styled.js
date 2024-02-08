@@ -16,9 +16,6 @@ const StyledSubmitInput = styled.input`
     &:hover {
         background-color: darkgreen;
     }
-    &::first-letter {
-        
-    }
 `
 
 export default StyledSubmitInput

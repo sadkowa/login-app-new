@@ -1,3 +1,3 @@
 import UserPanel from "./UserPanel";
 
-export {UserPanel}
+export { UserPanel }

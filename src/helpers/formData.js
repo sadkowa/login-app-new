@@ -40,7 +40,7 @@ const errorMessages = {
     email: "Please enter a valid email address",
     userName: "User name must contain 5-15 characters",
     password: "Password must contain at least 8 characters and at least 1 number",
-  };
+};
 
 const fieldValidate = (field, data) => {
     let error
