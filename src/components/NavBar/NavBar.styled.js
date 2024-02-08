@@ -13,7 +13,7 @@ const StyledNavBar = styled.nav`
         font-style: italic;
     }
 
-    @media (min-width: 650px) {
+    @media (min-width: 700px) {
         position: absolute;
         display: flex;
         align-items: center;

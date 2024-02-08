@@ -26,7 +26,7 @@ const StyledUserPanel = styled.div`
         max-width: 70%;
         margin: 60px;
         animation-name: grow;
-        animation-duration: 3s;
+        animation-duration: 1s;
 
         @keyframes opacity {
             from {opacity: 0}

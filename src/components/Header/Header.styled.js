@@ -15,7 +15,7 @@ const StyledHeader = styled.header`
         text-transform: uppercase;
     }
 
-    @media (min-width: 650px) {
+    @media (min-width: 700px) {
         display: block;
     }
 `
