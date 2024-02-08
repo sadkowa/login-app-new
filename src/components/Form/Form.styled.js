@@ -15,12 +15,6 @@ const StyledForm = styled.form`
         margin-top: 100px;
         gap: 20px;
     }
-
-    & div {
-        position: relative;
-        display: flex;
-        justify-content: center;
-    }
 `
 
 export default StyledForm

@@ -20,12 +20,13 @@ import {
   ErrorText,
   UserPanel,
   NavBar,
-  Dot
+  Dot,
+  UserInfo,
+  Container
 } from './'
 
 import { useStorage } from '../hooks/useStorage';
 import img from './../assets/hello.png'
-import { UserInfo } from './UserInfo';
 
 function App() {
   const [currentPageIndex, setCurrentPageIndex] = useState(0)
@@ -177,9 +178,9 @@ function App() {
             <Label>
               <SubmitInput type='submit' value="submit" />
             </Label>)}
-          <div>
+          <Container>
             {apiError && <ErrorText>{apiError}</ErrorText>}
-          </div>
+          </Container>
           <section>
             <Dot
               active={currentPageIndex === 0}

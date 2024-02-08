@@ -8,6 +8,8 @@ import { ErrorText } from './ErrorText';
 import { UserPanel } from './UserPanel';
 import { NavBar } from './NavBar';
 import { Dot } from './Dot';
+import { UserInfo } from './UserInfo';
+import { Container } from './Container';
 
 
 export {
@@ -20,5 +22,7 @@ export {
     ErrorText,
     UserPanel,
     NavBar,
-    Dot
+    Dot, 
+    UserInfo,
+    Container
 }
