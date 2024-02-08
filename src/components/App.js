@@ -176,7 +176,9 @@ function App() {
             <Label>
               <SubmitInput type='submit' value="submit" />
             </Label>)}
-          {apiError && <ErrorText>{apiError}</ErrorText>}
+          <div>
+            {apiError && <ErrorText>{apiError}</ErrorText>}
+          </div>
           <section>
             <Dot
               active={currentPageIndex === 0}
