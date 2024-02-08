@@ -14,15 +14,12 @@ const StyledButton = styled.button`
     transition: 0.2s linear;
 
     ${({ name }) => name === "Log out" && css`
-    height: 40px;
+        height: 40px;
         width: 100px
     `};
 
     &:hover {
         background-color: darkgreen;
-    }
-    &::first-letter {
-        
     }
 `
 

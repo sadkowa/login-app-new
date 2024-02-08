@@ -9,6 +9,7 @@ const StyledDot = styled.button`
         $active ? 'darkgreen' : 'transparent'
     )};
     cursor:pointer;
+    
     &:disabled {
         cursor: auto;
     }
