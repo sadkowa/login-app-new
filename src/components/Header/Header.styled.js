@@ -5,19 +5,6 @@ const StyledHeader = styled.header`
     display: flex;
     flex-direction: column;
     background-color: #22272E;
-
-    & h1 {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 10px;
-        margin: 10px;
-        text-transform: uppercase;
-    }
-
-    @media (min-width: 700px) {
-        display: block;
-    }
 `
 
 export default StyledHeader
