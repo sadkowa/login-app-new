@@ -17,10 +17,10 @@ const StyledInfo = styled.h2`
 const StyledWelcome = styled.h3`
     font-size: 1.5rem;
     line-height: 2rem;
+`
 
-    & p {
-        color: green
-    }
+const StyledName = styled.p`
+    color: green
 `
 
 const StyledImg = styled.img`
@@ -28,20 +28,23 @@ const StyledImg = styled.img`
     margin: 60px;
     animation-name: grow;
     animation-duration: 1s;
-    @keyframes opacity {
-        from {opacity: 0}
-        to {opacity: 1}
-    } 
+
     @keyframes grow {
         from {
-            transform:scale(0) rotate(0);
+            transform: scale(0) rotate(0);
             opacity: 0
         }
         to {
-            transform:scale(1) rotate(360deg);
+            transform: scale(1) rotate(360deg);
             opacity: 1
         }
     } 
 `
 
-export { StyledUserPage, StyledInfo, StyledWelcome, StyledImg }
+export {
+    StyledUserPage,
+    StyledInfo,
+    StyledWelcome,
+    StyledName,
+    StyledImg
+}
