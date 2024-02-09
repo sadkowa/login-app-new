@@ -105,8 +105,7 @@ function App() {
 
     if (currentErrorMessage) {
       setFieldsErrors({ ...fieldsErrors, email: currentErrorMessage })
-    }
-    if (fieldsErrors.email === '') {
+    } else {
       setCurrentPageIndex(currentPageIndex + 1)
     }
   }
@@ -166,7 +165,7 @@ function App() {
         ? 
         <Form
           onSubmit={submitHandler}
-          onKeyDown={(e) => e.key === 'Enter' && e.preventDefault()}
+          onKeyDown={e => e.key === 'Enter' && e.preventDefault()}
         >
           {renderFields()}
           {currentPageIndex === 0 && (
