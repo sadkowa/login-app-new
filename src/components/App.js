@@ -122,7 +122,7 @@ function App() {
     setUserData(initUserData)
   }
 
-  const changePageHandler = (e) => {
+  const changePageHandler = e => {
 
     if (currentPageIndex === 0) {
       nextButtonHandler(e)
@@ -138,8 +138,7 @@ function App() {
 
     if (Object.keys(newErrors).length !== 0) {
       setFieldsErrors({ ...fieldsErrors, ...newErrors })
-    }
-    else {
+    } else {
       loginApi.login(userData)
         .then(data => {
           const { token } = data
@@ -171,7 +170,7 @@ function App() {
         >
           {renderFields()}
           {currentPageIndex === 0 && (
-          <Label>
+            <Label>
               <Button onClick={nextButtonHandler}>Next</Button>
             </Label>)}
           {currentPageIndex === 1 && (

@@ -16,7 +16,7 @@ const StyledNavBar = styled.nav`
         margin: 0; 
         height: 100%;
         top: 0;
-        right:20px;
+        right: 20px;
     }
 
     @media (min-width: 1200px) {

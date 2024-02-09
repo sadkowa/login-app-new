@@ -3,9 +3,7 @@ import StyledErrorText from "./ErrorText.styled";
 
 const ErrorText = ({ children }) => {
     
-    return (
-        <StyledErrorText>{children}</StyledErrorText>
-    )
+    return <StyledErrorText>{children}</StyledErrorText>
 }
 
 export default ErrorText

@@ -3,9 +3,7 @@ import StyledDotsSection from "./DotsSection.styled";
 
 const DotsSection = ({ children }) => {
     
-    return (
-        <StyledDotsSection>{children}</StyledDotsSection>
-    )
+    return <StyledDotsSection>{children}</StyledDotsSection>
 }
 
 export default DotsSection
