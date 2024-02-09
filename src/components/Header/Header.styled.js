@@ -13,6 +13,7 @@ const StyledHeader = styled.header`
         padding: 10px;
         margin: 10px;
         text-transform: uppercase;
+        font-family: 'Protest Revolution', sans-serif;
     }
 
     @media (min-width: 700px) {
