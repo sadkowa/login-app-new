@@ -1,7 +1,8 @@
 import React from "react";
+import StyledMainHeading from "./MainHeading.styled";
 
 const MainHeading = ({ children }) => {
-    return <h1>{children}</h1>
+    return <StyledMainHeading>{children}</StyledMainHeading>
 }
 
 export default MainHeading
