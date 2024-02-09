@@ -14,7 +14,7 @@ const userDataFields = [
         name: "email",
         label: 'Email',
         required: true,
-        pattern: /^[-\w.]+@([-\w]+\.)+[a-z]+$/i
+        pattern: /^[-\w.]+@([-\w]+\.)+[a-z]+$/
     },
     {
         id: uuid(),
@@ -23,7 +23,7 @@ const userDataFields = [
         name: "userName",
         label: 'Login',
         required: true,
-        pattern: /^[\w-_.]{5,15}$/i
+        pattern: /^[a-zA-Z0-9]{5,15}$/
     },
     {
         id: uuid(),
@@ -38,7 +38,7 @@ const userDataFields = [
 
 const errorMessages = {
     email: "Please enter a valid email address",
-    userName: "User name must contain 5-15 characters",
+    userName: "User name must contain 5-15 characters (letters or numbers)",
     password: "Password must contain at least 8 characters and at least 1 number",
 };
 
